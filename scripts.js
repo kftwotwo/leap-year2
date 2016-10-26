@@ -4,12 +4,19 @@ var leapYear = function(year) {
   } else {
     return false;
   }
-};
+}
 
 $(function() {
   $("#leapYear").submit(function(event) {
     event.preventDefault();
     var year = parseInt($("#leapYear input").val());
-    console.log(leapYear(year));
+    var result = leapYear(year);
+    $("#year").text(year);
+    if (!result) {
+      $("#not").text("not");
+    } else {
+      $("#not").text("");
+    }
+    $("#output").show();
   })
 })
